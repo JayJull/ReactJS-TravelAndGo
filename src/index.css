@@ -110,41 +110,32 @@ h2 {
   color: var(--blackColor);
 }
 
+.navLink {
+  text-decoration: none;
+  color: var(--textColor);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.navLink:hover {
+  color: var(--PrimaryColor);
+  font-weight: 500;
+}
+
 .navBar {
   position: fixed;
   flex-direction: column;
   width: 100%;
   z-index: 1000;
 }
-.navBar .navBarOne, .navBar .navBarTwo {
-  justify-content: space-between;
-  padding: 1rem;
-  width: 100%;
-}
-.navBar .navBarOne {
-  background: var(--SecondaryColor);
-}
-.navBar .navBarOne .icon:hover {
-  color: var(--PrimaryColor);
-}
-.navBar .navBarOne .atb {
-  gap: 1rem;
-}
-.navBar .navBarOne .atb span {
-  color: var(--blackColor);
-  font-size: 13px;
-  cursor: pointer;
-}
-.navBar .navBarOne .atb span:hover {
-  color: var(--PrimaryColor);
-  font-size: 700;
-}
 .navBar .navBarTwo {
+  justify-content: space-between;
+  padding: 2rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: 3rem;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 3rem;
   font-weight: 300;
   position: fixed;
   transition: 0.3s ease-in-out;
@@ -638,6 +629,9 @@ h2 {
     border-radius: 3rem;
     flex-direction: row;
   }
+  .support {
+    margin-top: 10rem;
+  }
   .support .sectionContainer .infoDiv .textDiv {
     margin-top: 2rem;
     grid-template-columns: repeat(2, 1fr);
@@ -703,19 +697,6 @@ h2 {
   .navBar {
     align-items: center;
   }
-  .navBar .navBarOne .none {
-    display: flex;
-    gap: 1.5rem;
-  }
-  .navBar .navBarOne .none li {
-    font-size: 13px;
-    gap: 0.5rem;
-    color: var(--textColor);
-  }
-  .navBar .navBarOne .none li:hover {
-    color: var(--PrimaryColor);
-    text-decoration: underline;
-  }
   .navBar .navBarTwo {
     justify-content: space-between;
     align-items: center;
@@ -752,6 +733,9 @@ h2 {
   }
   .search .sectionContainer .searchInputs .singleInput .texts {
     width: 100%;
+  }
+  .support {
+    margin-top: 10rem;
   }
   .support .sectionContainer .infoDiv {
     grid-template-columns: repeat(2, 1fr);
@@ -795,6 +779,9 @@ h2 {
   }
 }
 @media screen and (min-width: 960px) {
+  .navBar .navBarTwo {
+    padding: 0 1rem;
+  }
   .home {
     padding-top: 13rem;
   }
@@ -850,8 +837,8 @@ h2 {
   .navBar {
     align-items: center;
   }
-  .navBar .navBarOne, .navBar .navBarTwo {
-    padding: 1.5rem 5rem;
+  .navBar .navBarTwo {
+    padding: 0 1rem;
   }
   .navBar .navbar_With_Bg {
     padding: 0 5rem;
@@ -915,6 +902,9 @@ h2 {
     width: 70%;
     height: 110%;
     top: 30%;
+  }
+  .support {
+    margin-top: 10rem;
   }
   .support .sectionContainer .infoDiv {
     gap: 1rem;

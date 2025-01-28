@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SiConsul } from "react-icons/si";
-import { BsPhoneVibrate } from "react-icons/bs";
-import { AiOutlineGlobal } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { CgMenuGridO } from "react-icons/cg";
 import logo from "../../assets/logo.png";
 
@@ -32,37 +30,21 @@ const Navbar = () => {
 
     return (
         <div className="navBar flex">
-            <div className="navBarOne flex">
-                <div>
-                    <SiConsul />
-                </div>
-                <div className="none flex">
-                    <li className="flex"> <BsPhoneVibrate className='icon'/> Support</li>
-                    <li className="flex"> <AiOutlineGlobal className='icon'/> Languages</li>
-                </div>
-                <div className="atb flex">
-                    <span>Sign In</span>
-                    <span>Sign Out</span>
-                </div>
-            </div>
-
             <div className={noBg}>
                 <div className="logoDiv">
                     <img src={logo} className="Logo" />
                 </div>
                 <div className={active}>
                     <ul className="menu flex">
-                        <li onClick={toggleNavbar} className="listItem">Home</li>
-                        <li onClick={toggleNavbar} className="listItem">About</li>
-                        <li onClick={toggleNavbar} className="listItem">Offers</li>
-                        <li onClick={toggleNavbar} className="listItem">Seats</li>
-                        <li onClick={toggleNavbar} className="listItem">Destinations</li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/" className="navLink">Home</Link></li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/booking" className="navLink">Booking</Link></li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">Galeri Destinasi</Link></li>                        
+                        <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">About</Link></li>
                     </ul>
                     <button onClick={toggleNavbar} className="btn flex btnOne">Contact</button>
                 </div>
-                <button className="btn flex btnTwo">Get Started</button>
-
-                {/* titik tiga */}
+                <button className="btn flex btnTwo">Contact</button>
+                
                 <div onClick={toggleNavbar} className="toggleIcon">
                     <CgMenuGridO className="icon" />
                 </div>
