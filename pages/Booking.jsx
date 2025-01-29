@@ -1,48 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
+import Pulau2 from "../src/assets/pulau merah 2.jpeg";
+import djawatan from "../src/assets/dejawatan.jpg";
 
 const Booking = () => {
-    const tourPackages = [
-        {
-            id: 1,
-            title: "Wisata Pantai",
-            description: "Nikmati keindahan pantai dengan pasir putih dan air jernih.",
-            price: 500000,
-            image: "https://example.com/pantai.jpg"
-        },
-        {
-            id: 2,
-            title: "Wisata Gunung",
-            description: "Jelajahi keindahan alam pegunungan dan udara segar.",
-            price: 750000,
-            image: "https://example.com/gunung.jpg"
-        },
-        {
-            id: 3,
-            title: "Wisata Kota",
-            description: "Kunjungi tempat-tempat bersejarah dan budaya di kota.",
-            price: 300000,
-            image: "https://example.com/kota.jpg"
-        }
-    ];
+  const items = [
+    { image: Pulau2, name: "Pulau Merah", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
+    { image: djawatan, name: "Djawatan", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
+    { image: Pulau2, name: "Kawah Ijen", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
+    { image: djawatan, name: "Sendang Seruni", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
+    { image: Pulau2, name: "Bangsring", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." },
+    { image: djawatan, name: "Telunjuk Raung", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }
+  ];
 
-    return (
-        <div style={{ padding: "20px" }}>
-            <h1>Booking Wisata</h1>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-                {tourPackages.map((packageItem) => (
-                    <div key={packageItem.id} style={{ border: "1px solid #ccc", borderRadius: "8px", padding: "10px", width: "300px" }}>
-                        <img src={packageItem.image} alt={packageItem.title} style={{ width: "100%", borderRadius: "8px" }} />
-                        <h2>{packageItem.title}</h2>
-                        <p>{packageItem.description}</p>
-                        <p>Harga: Rp {packageItem.price.toLocaleString()}</p>
-                        <button style={{ padding: "10px", backgroundColor: "#28a745", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>
-                            Booking Sekarang
-                        </button>
-                    </div>
-                ))}
-            </div>
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+  };
+
+  const goToPrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+  };
+
+  // Menampilkan slide berikutnya dan sebelumnya
+  const visibleItems = [
+    items[(currentIndex) % items.length],
+    items[(currentIndex + 1) % items.length],
+    items[(currentIndex + 2) % items.length],
+    items[(currentIndex + 3) % items.length],
+    items[(currentIndex + 4) % items.length],
+  ];
+
+  return (
+    <div>
+      <div className="home flex container">
+        <div className="mainText">
+          <h1>Cari liburan mu disini!</h1>
         </div>
-    );
+      </div>
+
+      <div className="slideContainer">
+        <div className="slide">
+          {visibleItems.map((item, index) => (
+            <div
+              key={index}
+              className="item"
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              <div className="content">
+                <div className="name">{item.name}</div>
+                <div className="deskripsi">{item.description}</div>
+                <button>See More</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="button">
+          <button className="prev" onClick={goToPrev}>
+            Prev
+          </button>
+          <button className="next" onClick={goToNext}>
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Booking;
