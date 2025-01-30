@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import video from "../src/assets/video.mp4";
 import car from "../src/assets/car.png";
 import foto from "../src/assets/foto.jpeg";
@@ -13,10 +13,13 @@ import davina from "../src/assets/davina.jpg";
 import chelsea from "../src/assets/chelsea.jpg";
 import messi from "../src/assets/messi.jpg";
 import donal from "../src/assets/donal.jpg";
+import pulau2 from "../src/assets/pulau merah 2.jpeg"
+import dejawatan from "../src/assets/dejawatan.jpg";
 
 import { RxCalendar } from "react-icons/rx";
 import { BsShieldCheck } from "react-icons/bs";
 import { BsBookmarkCheck } from "react-icons/bs";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -70,7 +73,44 @@ const Home = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
-  
+
+  const [items, setItems] = useState([
+    {
+      image: pulau2,
+      name: "Pulau Merah",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
+    },
+    {
+      image: dejawatan,
+      name: "Djawatan",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
+    },
+    {
+      image: kawah,
+      name: "Kawah Ijen",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
+    },
+    
+  ]);
+
+  const handleNext = () => {
+    setItems((prevItems) => {
+      const [first, ...rest] = prevItems;
+      return [...rest, first];
+    });
+  };
+
+  const handlePrev = () => {
+    setItems((prevItems) => {
+      const rest = prevItems.slice(0, -1);
+      const last = prevItems[prevItems.length - 1];
+      return [last, ...rest];
+    });
+  };
+
   return (
     <div>
       <div className="home flex container">
@@ -87,6 +127,7 @@ const Home = () => {
           <img src={car} alt="" className="car" />
         </div>
       </div>
+     
       <div className="support container section">
         <div className="sectionContainer">
           <div className="tittlesDiv">
@@ -149,7 +190,37 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>     
+      <div className="destinasiFavorite">
+        <h1>Destination Favorite</h1>
       </div>
+       <div className="slideContainer">        
+        <div className="slide">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="item"
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              <div className="content">
+                <div className="name">{item.name}</div>
+                <div className="des">{item.description}</div>
+                <button>See More</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="button">
+          <button className="prev" onClick={handlePrev}>
+            <ArrowLeft size={20} />
+          </button>
+          <button className="next" onClick={handleNext}>
+            <ArrowRight size={20} />
+          </button>
+        </div>
+      </div>
+
       <div className="info section">
         <div className="infoContainer container">
           <div className="titleDiv flex">

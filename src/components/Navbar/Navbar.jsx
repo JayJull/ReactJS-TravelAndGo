@@ -37,7 +37,7 @@ const Navbar = () => {
                 <div className={active}>
                     <ul className="menu flex">
                         <li onClick={toggleNavbar} className="listItem"><Link to="/" className="navLink">Home</Link></li>
-                        <li onClick={toggleNavbar} className="listItem"><Link to="/booking" className="navLink">Booking</Link></li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/Product" className="navLink">Booking</Link></li>
                         <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">Galeri Destinasi</Link></li>                        
                         <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">About</Link></li>
                     </ul>
