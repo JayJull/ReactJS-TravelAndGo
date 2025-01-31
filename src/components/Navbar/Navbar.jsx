@@ -31,15 +31,15 @@ const Navbar = () => {
     return (
         <div className="navBar flex">
             <div className={noBg}>
-                <div className="logoDiv">
+                <div className="logoDiv"><Link to="/">
                     <img src={logo} className="Logo" />
-                </div>
+                </Link></div>
                 <div className={active}>
                     <ul className="menu flex">
                         <li onClick={toggleNavbar} className="listItem"><Link to="/" className="navLink">Home</Link></li>
-                        <li onClick={toggleNavbar} className="listItem"><Link to="/Product" className="navLink">Booking</Link></li>
-                        <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">Galeri Destinasi</Link></li>                        
-                        <li onClick={toggleNavbar} className="listItem"><Link to="#" className="navLink">About</Link></li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/product" className="navLink">Product</Link></li>
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/tutorial" className="navLink">How To</Link></li>                        
+                        <li onClick={toggleNavbar} className="listItem"><Link to="/about" className="navLink">About</Link></li>
                     </ul>
                     <button onClick={toggleNavbar} className="btn flex btnOne">Contact</button>
                 </div>

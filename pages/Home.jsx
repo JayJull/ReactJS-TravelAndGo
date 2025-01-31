@@ -74,16 +74,22 @@ const Home = () => {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const [items, setItems] = useState([
+  const [items, setItems] = useState([  
+    {
+      image: dejawatan,
+      name: "Djawatan",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
+    },
     {
       image: pulau2,
       name: "Pulau Merah",
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
-    },
+    },    
     {
-      image: dejawatan,
-      name: "Djawatan",
+      image: kawah,
+      name: "Kawah Ijen",
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
     },
@@ -93,6 +99,12 @@ const Home = () => {
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
     },
+    {
+      image: kawah,
+      name: "Kawah Ijen",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!",
+    },    
     
   ]);
 
@@ -127,7 +139,6 @@ const Home = () => {
           <img src={car} alt="" className="car" />
         </div>
       </div>
-     
       <div className="support container section">
         <div className="sectionContainer">
           <div className="tittlesDiv">
@@ -191,10 +202,13 @@ const Home = () => {
           </div>
         </div>
       </div>     
-      <div className="destinasiFavorite">
+      <div className="destinasiFavorite section">
         <h1>Destination Favorite</h1>
+        <p>
+        The following are favorite destinations that are visited by many!
+        </p>
       </div>
-       <div className="slideContainer">        
+       <div className="slideContainer section">
         <div className="slide">
           {items.map((item, index) => (
             <div
@@ -220,7 +234,6 @@ const Home = () => {
           </button>
         </div>
       </div>
-
       <div className="info section">
         <div className="infoContainer container">
           <div className="titleDiv flex">
