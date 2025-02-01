@@ -8,6 +8,12 @@ import bangsring from "../src/assets/bangsring.jpeg";
 const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("default");
+  
+  const generateWhatsAppLink = (productTitle) => {
+    const baseMessage = "Salam Travel! Saya ingin pesan paket ";
+    const fullMessage = `${baseMessage}${productTitle}`;
+    return `https://wa.me/6285156619369?text=${encodeURIComponent(fullMessage)}`;
+  };
 
   const products = [
     {
@@ -15,7 +21,6 @@ const Product = () => {
       image: pulau,
       description: "Banyuwangi, Indonesia",
       title: "Pantai Pulau Merah",
-      link: "#",
       category: "pantai",
       price: 15000
     },
@@ -24,7 +29,6 @@ const Product = () => {
       image: djawatan,
       description: "Banyuwangi, Indonesia",
       title: "Hutan De Djawatan",
-      link: "#",
       category: "hutan",
       price: 20000
     },
@@ -33,7 +37,6 @@ const Product = () => {
       image: sendang,
       description: "Lombok, Indonesia",
       title: "Sendang Seruni",
-      link: "#",
       category: "air-terjun",
       price: 10000
     },
@@ -42,7 +45,6 @@ const Product = () => {
       image: telunjuk,
       description: "Banyuwangi, Indonesia",
       title: "Gunung Telunjuk",
-      link: "#",
       category: "gunung",
       price: 25000
     },
@@ -51,7 +53,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -60,7 +61,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -69,7 +69,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -78,7 +77,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -87,7 +85,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -96,7 +93,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -105,7 +101,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -114,7 +109,6 @@ const Product = () => {
       image: bangsring,
       description: "Banyuwangi, Indonesia",
       title: "Bangsring Underwater",
-      link: "#",
       category: "pantai",
       price: 30000
     },
@@ -130,15 +124,13 @@ const Product = () => {
 
   const getFilteredAndSortedProducts = () => {
     let filteredProducts = [...products];
-
-    // Filter by category
+    
     if (selectedCategory !== "all") {
       filteredProducts = filteredProducts.filter(
         (product) => product.category === selectedCategory
       );
     }
 
-    // Sort by price
     if (sortBy === "murah-mahal") {
       filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sortBy === "mahal-murah") {
@@ -185,7 +177,7 @@ const Product = () => {
                 <span className="cardDeskripsi">{product.description}</span>
                 <h2 className="cardTitle">{product.title}</h2>
                 <p className="cardPrice">Rp {product.price.toLocaleString()}</p>
-                <a href={product.link} className="cardButton">
+                <a href={generateWhatsAppLink(product.title)} className="cardButton">
                   Read More
                 </a>
               </div>

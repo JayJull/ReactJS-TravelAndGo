@@ -28,14 +28,11 @@ const Footer = () => {
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="#">Offers</a>
+                        <a href="#">HowTo</a>
                     </li>
                     <li>
-                        <a href="#">Seats</a>
-                    </li>                    
-                    <li>
-                        <a href="#">Destinations</a>
-                    </li>                    
+                        <a href="#">Product</a>
+                    </li>
                 </div>
 
                 <div className="footerLinks">
